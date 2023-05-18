@@ -1,0 +1,61 @@
+﻿@model PL.Models.Coctel
+@{
+    ViewData["Title"] = "GetAllCocteles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link rel="stylesheet" href="~/css/csscard/StyleCard.css" />
+
+
+@using (Html.BeginForm("GetAllCocteles", "Cocteles", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+    <div class="col-md-3">
+
+        @Html.TextBoxFor(model => model.buscar, new { @class = "form-control", @id = "txtbusqueda"  })
+        @Html.ValidationMessageFor(model => model.buscar)
+        <div class="center-block ">
+            <input type="submit" value="Guardar" class="btn btn-success" />
+        </div>
+    </div>
+}
+
+<hr />
+
+@foreach (PL.Models.Coctel coctel in Model.Cocteles)
+{
+    <div class="main">
+        <ul class="cards">
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src=@coctel.Image style="width:300px; height:200px"></div>
+                    <div class="card_content">
+                        <h2 class="card_title">@coctel.Name</h2>
+                        <div class="card_text">
+                            <h5>Ingredientes</h5>
+                            <p>
+                                @coctel.Ingredientes.Ingrediente1  @coctel.Ingredientes.Cantidad1
+                                @coctel.Ingredientes.Ingrediente2  @coctel.Ingredientes.Cantidad2
+                                @coctel.Ingredientes.Ingrediente3  @coctel.Ingredientes.Cantidad3
+                                @coctel.Ingredientes.Ingrediente4  @coctel.Ingredientes.Cantidad4
+                                @coctel.Ingredientes.Ingrediente5  @coctel.Ingredientes.Cantidad5
+                                @coctel.Ingredientes.Ingrediente6  @coctel.Ingredientes.Cantidad6
+                                @coctel.Ingredientes.Ingrediente7  @coctel.Ingredientes.Cantidad7
+                                @coctel.Ingredientes.Ingrediente8  @coctel.Ingredientes.Cantidad8
+                                @coctel.Ingredientes.Ingrediente9  @coctel.Ingredientes.Cantidad9
+                                @coctel.Ingredientes.Ingrediente10 @coctel.Ingredientes.Cantidad10
+                                @coctel.Ingredientes.Ingrediente11 @coctel.Ingredientes.Cantidad11
+                                @coctel.Ingredientes.Ingrediente12 @coctel.Ingredientes.Cantidad12
+                                @coctel.Ingredientes.Ingrediente13 @coctel.Ingredientes.Cantidad13
+                                @coctel.Ingredientes.Ingrediente14 @coctel.Ingredientes.Cantidad14
+                                @coctel.Ingredientes.Ingrediente15 @coctel.Ingredientes.Cantidad15
+                            </p>
+                            <h5>@coctel.Preparacion</h5>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+}
